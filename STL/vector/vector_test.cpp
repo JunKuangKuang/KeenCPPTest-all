@@ -4,6 +4,21 @@
 
 using namespace std;
 
+void init() {
+
+    //空对象
+    vector<int> v1;
+
+    //元素个数为5，每个int元素都为0
+    vector<int> v2(5);
+
+    //元素个数为5，每个int元素都为3
+    vector<int> v3(5, 3);
+
+    //手动赋初值，共五个元素，元素值为指定的内容
+    vector<int> v4{1, 2, 3, 4, 5};
+}
+
 /*
  * 声明了一个对象，初始是两个元素，容量为2
  * 当直接修改下标没有超过容量，会直接修改元素
@@ -90,7 +105,21 @@ void search2() {
 }
 
 /*
- * 删除有两种方式，一个是直接清空，另一个是删除指定个数的元素
+ * 直接用下标取值，超过容量会报错
+ * */
+void search3() {
+    vector<int> demo{1, 2};
+
+    cout << demo.at(1);
+    // cout <<demo.at(1);// 会报错
+    cout << endl;
+}
+
+/*
+ * 删除有两种方式，
+ * clear一个是直接清空
+ * erase是删除指定迭代器范围内的数字
+ * pop_back是删除最后一个
  * */
 void del() {
     vector<int> demo{1, 2, 3, 4, 5};
@@ -120,7 +149,9 @@ int main() {
     // add3();
     // add4();
 
-    search2();
-    del();
+    // search1();
+    // search2();
+    search3();
+    // del();
     return 0;
 }
