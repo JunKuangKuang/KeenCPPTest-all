@@ -18,8 +18,9 @@ struct Node {
         this->sum = sum;
     }
 
+    //从小到大排列，会形成大顶堆
     friend bool operator<(Node n1, Node n2) {
-        return n1.sum < n2.sum; //从小到大排列
+        return n1.sum < n2.sum;
     }
 };
 
