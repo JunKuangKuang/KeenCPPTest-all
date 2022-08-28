@@ -1,6 +1,9 @@
 // linked implementation of a linear list
 // derives from abstract class linearList just to make sure
 // all methods of the ADT are implemented
+/*
+ * 线性表的链表实现
+ * */
 
 #ifndef chain_
 #define chain_
@@ -50,13 +53,16 @@ public:
     void output(ostream &out) const;
 
 protected:
+    // throw illegalIndex if theIndex invalid
     void checkIndex(int theIndex) const;
 
-    // throw illegalIndex if theIndex invalid
-    chainNode<T> *firstNode;  // pointer to first node in chain
+    // pointer to first node in chain
     //指向链表第一个节点的指针
-    int listSize;             // number of elements in list
+    chainNode<T> *firstNode;
+
+    // number of elements in list
     //线性表的元素个数
+    int listSize;
 };
 
 template<class T>
@@ -71,12 +77,18 @@ chain<T>::chain(int initialCapacity) {// Constructor.
     listSize = 0;
 }
 
-//复制构造函数
+/*
+ * 复制构造函数
+ * 注意不要用头节点去遍历链表，要用临时指针sourceNode和targetNode
+ * */
+// Copy constructor.
 template<class T>
-chain<T>::chain(const chain<T> &theList) {// Copy constructor.
+chain<T>::chain(const chain<T> &theList) {
     listSize = theList.listSize;
-    if (listSize == 0) {// theList is empty
-        //链表为空
+
+    // theList is empty
+    //链表为空
+    if (listSize == 0) {
         firstNode = NULL;
         return;
     }
@@ -90,7 +102,7 @@ chain<T>::chain(const chain<T> &theList) {// Copy constructor.
     // copy first data of theList
     //复制链表的首元素
     sourceNode = sourceNode->next;
-    chainNode<T> *targetNode = firstNode;
+    chainNode<T> *targetNode = this->firstNode;
     // current last node in *this
     //当前列表的最后一个节点
     while (sourceNode != NULL) {// copy remaining elements
@@ -103,9 +115,11 @@ chain<T>::chain(const chain<T> &theList) {// Copy constructor.
 
 template<class T>
 chain<T>::~chain() {// Chain destructor. Delete all nodes in chain.
-    //析构函数
+    chainNode<T> *nextNode;
+    //析构函数，重点在于用临时指针保存下一个结点的位置
+    // 否则删除当前结点后，就没办法继续删除下一个了
     while (firstNode != NULL) {// delete firstNode
-        chainNode<T> *nextNode = firstNode->next;
+        nextNode = firstNode->next;
         delete firstNode;
         firstNode = nextNode;
     }
@@ -178,8 +192,13 @@ void chain<T>::erase(int theIndex) {// Delete the data whose index is theIndex.
     delete deleteNode;
 }
 
+// Insert theElement so that its index is theIndex.
+/*
+ * 这个实现要求插入的索引值是在链表长度的限制中
+ * 即想给一个只有5个元素的链表插入时，只能用insert(5,new chainNode)尾插元素
+ * */
 template<class T>
-void chain<T>::insert(int theIndex, const T &theElement) {// Insert theElement so that its index is theIndex.
+void chain<T>::insert(int theIndex, const T &theElement) {
     if (theIndex < 0 || theIndex > listSize) {// invalid index
         ostringstream s;
         s << "index = " << theIndex << " size = " << listSize;
@@ -204,8 +223,9 @@ template<class T>
 void chain<T>::output(ostream &out) const {// Put the list into the stream out.
     for (chainNode<T> *currentNode = firstNode;
          currentNode != NULL;
-         currentNode = currentNode->next)
+         currentNode = currentNode->next) {
         out << currentNode->data << "  ";
+    }
 }
 
 // overload <<
