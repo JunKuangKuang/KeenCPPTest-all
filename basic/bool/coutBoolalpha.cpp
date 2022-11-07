@@ -1,5 +1,6 @@
 //
-// Created by keen on 2022/8/28.
+// Created by 君匡 on 2022/8/28.
+// 输出bool类型的字符
 //
 #include <iostream>
 using namespace std;
@@ -9,3 +10,8 @@ int main(){
     cout<<"a="<<boolalpha<<a<<" , b="<<b<<endl;
     return 0;
 }
+/*
+ * 结果为：
+ * a=1 , b=0
+ * a=true , b=false
+ * */

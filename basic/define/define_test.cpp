@@ -1,8 +1,7 @@
-//
-// Created by keen on 2022/8/28.
-//
 /**
- * 宏定义测试文件
+ * Created by 君匡 on 2022/8/28.
+ * 宏定义、注意括号的位置
+ * https://www.clzly.xyz/2020/CPP/33e1c032/
  * */
 #include<iostream>
 

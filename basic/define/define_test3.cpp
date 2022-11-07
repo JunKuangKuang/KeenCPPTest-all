@@ -1,7 +1,5 @@
-//
-// Created by keen on 2022/8/28.
-//
 /**
+ * Created by 君匡 on 2022/8/28.
  * 宏定义测试文件3
  * */
 #include<iostream>

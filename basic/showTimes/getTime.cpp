@@ -1,5 +1,6 @@
 //
-// Created by keen on 2022/8/23.
+// Created by 君匡 on 2022/8/23.
+// 输出时间
 //
 #include <iostream>
 #include <time.h>

@@ -1,13 +1,10 @@
-//
-// Created by keen on 2022/8/28.
-//
-
-#include "../utils/chain/chainNode.h"
-#include <iostream>
-
 /*
+ * Created by 君匡 on 2022/8/28.
  * 统计链表中元素值为X的结点个数
  * */
+#include "../../utils/chain/chainNode.h"
+#include <iostream>
+
 int countX(const chainNode<int> *root, int X) {
     int num = 0;// 统计次数
     const chainNode<int> *temp=root;
