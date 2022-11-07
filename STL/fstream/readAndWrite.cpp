@@ -1,5 +1,5 @@
 //
-// Created by keen on 2022/8/28.
+// Created by 君匡 on 2022/8/28.
 //
 #include <fstream>
 #include<iostream>
@@ -9,14 +9,14 @@
 using namespace std;
 
 
-
 /*
  * 读取文件，并统计有多少行
  * */
 void read() {
     // ifstream fin("input.txt");//等价于
     // fstream fin("input.txt", ios::in);//等价于
-    fstream fin;    fin.open(filepath"input.txt", ios::in);
+    fstream fin;
+    fin.open(filepath"input.txt", ios::in);
 
     // 一定要判断是否打开成功！
     if (!fin) {
@@ -44,7 +44,7 @@ void write() {
     fin.open(filepath"input.txt", ios::app); // 末尾追加模式
     if (!fin) {
         cout << "打开文件出错" << endl;
-        return ;
+        return;
     }
     fin << "这是新加的一行" << endl;
     fin.close();

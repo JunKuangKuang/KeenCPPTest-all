@@ -271,8 +271,8 @@ void specialCompare() {
 
     // 转换为新的map集合，区别就是前后类型反了。
     map<int, string> m2;
-    for (vector<pair<string, int> >::iterator it = demo.begin(); it != demo.end(); ++it){
-        m2[(*it).second]=(*it).first;
+    for (vector<pair<string, int> >::iterator it = demo.begin(); it != demo.end(); ++it) {
+        m2[(*it).second] = (*it).first;
     }
 
     map<int, string>::iterator iter;
